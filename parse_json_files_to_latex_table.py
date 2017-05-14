@@ -16,7 +16,7 @@ class JSONtoLaTeXtableParser:
         self.out = output_file
 
 
-    def __build_tex_tab_string(self, data, args):
+    def __build_latex_tab_string(self, data, args):
         """ extract values from data using keywords from args """
         s = ""
         for i, key in enumerate(args):
@@ -27,27 +27,27 @@ class JSONtoLaTeXtableParser:
         return s
 
 
-    def parse_first_level_to_tex_tab(self, *args):
+    def parse_first_level_to_latex_tab(self, *args):
         """ extract data from flat dictionary """
         self.header= args
         for file_n in self.files:
             with open(file_n, 'r') as fd:
                 data = json.load(fd)
-                s = self.__build_tex_tab_string(data, args)
+                s = self.__build_latex_tab_string(data, args)
                 self.lines.append(s)
 
 
-    def parse_second_level_to_tex_tab(self, first_level_key, *args):
+    def parse_second_level_to_latex_tab(self, first_level_key, *args):
         """ extract data from a dictionary within a dictionary """
         self.header= args
         for file_n in self.files:
             with open(file_n, 'r') as fd:
                 data = json.load(fd)[first_level_key]
-                s = self.__build_tex_tab_string(data, args)
+                s = self.__build_latex_tab_string(data, args)
                 self.lines.append(s)
 
 
-    def parse_x_level_to_tex_tab(self, level, *args):
+    def parse_x_level_to_latex_tab(self, level, *args):
         """
         extract data from a dictionary within a dictionary
         within a dictionary ... e. g.:
@@ -59,11 +59,11 @@ class JSONtoLaTeXtableParser:
                 data = json.load(fd)
                 for l in level:
                     data = data[l]
-                s = self.__build_tex_tab_string(data, args)
+                s = self.__build_latex_tab_string(data, args)
                 self.lines.append(s)
 
 
-    def create_tex_table(self):
+    def create_latex_table(self):
         """
         create simple LaTeX table based on extracted data.
         """
