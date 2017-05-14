@@ -2,7 +2,7 @@
 
 Extract data from JSON files and create a table containing those values. The created table is a simple one without coloring or other styling. It is useful if you store result of a series of tests in a separate JSON file. The class is able to create a table like following one:
 
-| Header One     | Header Two     | Header Three     | Header Four     |
+| key1     | key2     | key3     | key4     |
 | :------------- | :------------- | :------------- | :------------- |
 | Value1 of JSON 1 | Value2 of JSON 1| Value3 of JSON 1 |Value4 of JSON 1|
 | Value1 of JSON 2 | Value2 of JSON 2| Value3 of JSON 2 |Value4 of JSON 2|
